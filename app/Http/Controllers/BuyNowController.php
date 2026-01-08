@@ -41,6 +41,22 @@ class BuyNowController extends Controller
     }
 
 
+    public function checkTransactionStatus(Request $request)
+    {
+        $token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYjc3Y2EyOWY5YzdlNDJhNiJ9LCJpYXQiOjE3NjcwNzYxODcsImV4cCI6MTc3NDg1MjE4N30.tgKhi1KGnQz3yN1iajexD61rB42XXIoTjiQfIWKwOcY";
+        $md5 = $request->md5;
+        $bakongKhqr = new BakongKHQR($token);
+        $response = $bakongKhqr->checkTransactionByMD5($md5);
+        return response()->json($response);
+    }
+
+
+    public function customerThank(Request $request)
+    {
+        return view('customer_thank');
+    }
+
+
     function SendNotification($name, $price)
     {
         $url = 'https://api.telegram.org/bot8233326240:AAFtWi4TpjxTf_Tnj6vldczlVwIDfJZK_WI/sendMessage';
@@ -65,4 +81,10 @@ class BuyNowController extends Controller
 
         return $response;
     }
+
+
+    function productDetail(Request  $request){
+        return view('detail');
+    }
 }
+

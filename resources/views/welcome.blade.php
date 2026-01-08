@@ -18,23 +18,26 @@
                     class="card-img-top" alt="..."
                 >
                 <div class="card-body">
-                    <h5 class="card-title">Buldak</h5>
-                    <h5 class="card-title">1.0$</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <a href="{{ route('product_detail') }}">
+                        <h5 class="card-title">Buldak</h5>
+                        <h5 class="card-title">0.10$</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
+                            card's content.</p>
+                    </a>
+
                     <form
                         method="post"
                         action="{{ url(route('buy_now')) }}"
                     >
                         @csrf
                         <input type="hidden" name="name" value="Buldak">
-                        <input type="hidden" name="price" value="1">
+                        <input type="hidden" name="price" value="0.10">
                         <button type="submit"
                                 class="btn btn-primary float-right"
                         >Buy Now
                         </button>
                     </form>
-
                 </div>
             </div>
         </div>

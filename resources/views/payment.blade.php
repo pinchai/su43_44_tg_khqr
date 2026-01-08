@@ -11,7 +11,8 @@
 
     <!-- QRCode -->
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
-
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
         body {
             background: #fff;
@@ -166,6 +167,25 @@
 
         time--;
     }, 1000);
+
+
+    const checkPaymentStatus = setInterval(() => {
+        let url = "{{ url('/check-transaction-status') }}?md5={{ $qrData['md5'] }}";
+        axios.get(url)
+            .then(function (response) {
+                // handle success
+                if (response.data.data == null) {
+                    console.log('waiting for payment...');
+                }else {
+                    clearInterval(checkPaymentStatus);
+                    window.location.href = "{{ url('/customer-thank') }}";
+                }
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
+    }, 3000);
 </script>
 
 </body>
