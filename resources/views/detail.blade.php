@@ -63,6 +63,12 @@
         <i class="fab fa-facebook-f"></i> Share on Facebook
     </a>
 
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://127.0.0.1:8001/product-detail"
+       target="_blank">
+        Share on Facebook
+    </a>
+
+
     <hr>
 
     <div class="row">

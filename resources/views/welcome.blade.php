@@ -20,7 +20,7 @@
                 <div class="card-body">
                     <a href="{{ route('product_detail') }}">
                         <h5 class="card-title">Buldak</h5>
-                        <h5 class="card-title">0.10$</h5>
+                        <h5 class="card-title">0.01$</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
                             card's content.</p>
@@ -32,7 +32,7 @@
                     >
                         @csrf
                         <input type="hidden" name="name" value="Buldak">
-                        <input type="hidden" name="price" value="0.10">
+                        <input type="hidden" name="price" value="0.01">
                         <button type="submit"
                                 class="btn btn-primary float-right"
                         >Buy Now
